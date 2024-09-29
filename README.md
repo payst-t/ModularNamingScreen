@@ -25,10 +25,10 @@ Or alternatively, you can just download the repo as zip, ***which is only ever a
 
 ### Build Instructions
 The base requirements are exactly the same as the CFRU:
-    * Python 3.7.4
-    * devkitARM
-    * grit (that you can get within the `deps.zip` file in the CFRU repo)
-    * An 1.0 FireRed ROM named `BPRE0.gba` in the root folder.
+* Python 3.7.4
+* devkitARM
+* grit (that you can get within the `deps.zip` file in the CFRU repo)
+* An 1.0 FireRed ROM named `BPRE0.gba` in the root folder.
 
 Running `python scripts/make.py` (or `python3 on unix-like platforms`) should start the build process, and the insertion.
 
