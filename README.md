@@ -1,6 +1,8 @@
 ## Modular Naming Screen (WIP)
 This injection adds the possibility for one to dynamically load a sprite as the input target for a naming screen.
 
+![showcase.gif]
+
 ### TODO
 - [ ] Fix the palette issue.
 
