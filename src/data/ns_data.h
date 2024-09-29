@@ -98,6 +98,7 @@ static const struct
 {
     const union AnimCmd *const *anims;
     const struct SpriteFrameImage *images;
+    const u16 *paletteData;
 } NS_SPseudoSprites[] = {
-    {NS_SAnims_LLetter, NS_SImageTable_LLetter},
+    {NS_SAnims_LLetter, NS_SImageTable_LLetter, l_0Pal},
 };

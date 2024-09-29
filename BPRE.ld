@@ -14,6 +14,7 @@ Free                                        = 0x08002BC4|1;
 SetMainCallback2                            = 0x08000544|1;
 CB2_LoadNamingScreen                        = 0x0809D9E0|1;
 CreateSprite                                = 0x08006F8C|1;
+LoadSpritePalette                           = 0x08008928|1;
 CB2_ReturnToFieldContinueScriptPlayMapMusic = 0x080568E0|1;
 
 NS_IconFunc_NoIcon      = 0x0809EF50|1;
@@ -29,6 +30,7 @@ gSprites                    = 0x0202063C;
 gDummySpriteAffineAnimTable = 0x08231CFC;
 NS_SNSData                  = 0x0203998C;
 NS_SInputTargetST           = 0x02022870;
+NS_SInputTargetSP           = 0x02022B54;
 gStringVar1                 = 0x02021CD0;
 gStringVar2                 = 0x02021CF0;
 gStringVar3                 = 0x02021D04;

@@ -7,12 +7,14 @@
 
 extern struct NamingScreenData *NS_SNSData;
 extern struct SpriteTemplate *NS_SInputTargetST;
+extern struct SpritePalette *NS_SInputTargetSP;
 
 extern void CB2_LoadNamingScreen(void);
 
 void NS_CopyStringFromSelectedBuffer(void);
 void NS_DummySpriteCB(struct Sprite *);
 struct SpriteTemplate *NS_ConstructSpriteTemplate(const u32 spriteId);
+struct SpritePalette *NS_ConstructSpritePalette(const u32 spriteId);
 void NS_CB2_FreeInputTargetST(void);
 void NS_LoadCustomNS(void);
 
@@ -42,7 +44,7 @@ struct SpriteTemplate *NS_ConstructSpriteTemplate(const u32 spriteId)
     struct SpriteTemplate *template = Alloc(sizeof(*template));
 
     template->tileTag = TAG_NONE;
-    template->paletteTag = PALTAG_MENU;
+    template->paletteTag = PALTAG_CUSTOM_SPRITE;
     template->oam = &NS_SOam_16x32;
     template->anims = NS_SPseudoSprites[spriteId].anims;
     template->images = NS_SPseudoSprites[spriteId].images;
@@ -52,9 +54,20 @@ struct SpriteTemplate *NS_ConstructSpriteTemplate(const u32 spriteId)
     return template;
 }
 
+struct SpritePalette *NS_ConstructSpritePalette(const u32 spriteId)
+{
+    struct SpritePalette *palette = Alloc(sizeof(*palette));
+
+    palette->tag = PALTAG_CUSTOM_SPRITE;
+    palette->data = NS_SPseudoSprites[spriteId].paletteData;
+
+    return palette;
+}
+
 void NS_CB2_FreeInputTargetST(void)
 {
     FREE_AND_SET_NULL(NS_SInputTargetST);
+    FREE_AND_SET_NULL(NS_SInputTargetSP);
     SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
@@ -86,7 +99,11 @@ void NS_IconFunc_CustomSprite(void)
     u32 pseudoSpriteId, spriteId;
     
     pseudoSpriteId = VarGet(VAR_0x8004) % ARRAY_COUNT(NS_SPseudoSprites);
+    
     NS_SInputTargetST = NS_ConstructSpriteTemplate(pseudoSpriteId);
+    NS_SInputTargetSP = NS_ConstructSpritePalette(pseudoSpriteId);
+
+    LoadSpritePalette(NS_SInputTargetSP);
     spriteId = CreateSprite(NS_SInputTargetST, 56, 40, 0);
 
     gSprites[spriteId].oam.priority = 3;
