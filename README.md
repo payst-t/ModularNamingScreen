@@ -4,7 +4,7 @@ This injection adds the possibility for one to dynamically load a sprite as the 
 ![showcase of the naming screen](showcase.gif)
 
 ### TODO
-- [ ] Fix the palette issue.
+- [x] Fix the palette issue.
 
 ### Usage
 Instead of creating a new `struct NamingScreenTemplate` each time, you can just add an entry to: `NS_SPseudoSprites` in `src/data/ns_data.h`, by following the given examples in `src/data/ns_pseudosprites_images.h` and `src/data/ns_pseudosprites_anims.h`.
