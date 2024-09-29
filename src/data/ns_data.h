@@ -88,14 +88,15 @@ const struct NamingScreenTemplate NS_SCustomSpriteNSTemplate = {
     .title = NS_SEnterText,
 };
 
-#define NS_PSEUDOSPRITE(a, i, s) {a, i, s, ARRAY_COUNT(s)}
+#include "ns_pseudosprites_images.h"
+#include "ns_pseudosprites_anims.h"
+
+#define NS_PSEUDOSPRITE(a, i) {a, i}
 
 static const struct
 {
     const union AnimCmd *const *anims;
     const struct SpriteFrameImage *images;
-    const struct Subsprite *subsprites;
-    const u32 subspriteCount;
 } NS_SPseudoSprites[] = {
-    {NULL, NULL, NULL, 0},
+    {NS_SAnims_LLetter, NS_SImageTable_LLetter},
 };

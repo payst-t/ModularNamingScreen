@@ -29,3 +29,4 @@ Cover Art.png
 *.pyc
 test.toml
 .vscode
+graphics/**/*.h
