@@ -76,6 +76,7 @@ static const u8 NS_SEnterText[] = {
     CHAR_E,
     CHAR_X,
     CHAR_T,
+    CHAR_COLON,
     EOS,
 };
 
