@@ -7,7 +7,7 @@ extern const struct NamingScreenTemplate NS_SRivalNamingNSTemplate;
 
 const struct NamingScreenTemplate NS_SCustomSpriteNSTemplate;
 
-static void (*const NS_SIconFunctions[])(void) = {
+void (*const NS_SIconFunctions[])(void) = {
     NS_IconFunc_NoIcon,
     NS_IconFunc_PlayerIcon,
     NS_IconFunc_PCIcon,
@@ -16,7 +16,7 @@ static void (*const NS_SIconFunctions[])(void) = {
     NS_IconFunc_CustomSprite,
 };
 
-static void (*const NS_SDTEFunctions[])(void) = {
+void (*const NS_SDTEFunctions[])(void) = {
     [NAMING_SCREEN_PLAYER] = NS_DTEFunc_Normal,
     [NAMING_SCREEN_BOX] = NS_DTEFunc_Normal,
     [NAMING_SCREEN_CAUGHT_MON] = NS_DTEFunc_Mon,
@@ -25,7 +25,7 @@ static void (*const NS_SDTEFunctions[])(void) = {
     [NAMING_SCREEN_CUSTOM_SPRITE] = NS_DTEFunc_Normal,
 };
 
-static const struct NamingScreenTemplate *const NS_SNSTemplates[] = {
+const struct NamingScreenTemplate *const NS_SNSTemplates[] = {
     [NAMING_SCREEN_PLAYER] = &NS_SPlayerNSTemplate,
     [NAMING_SCREEN_BOX] = &NS_SBoxNamingNSTemplate,
     [NAMING_SCREEN_CAUGHT_MON] = &NS_SMonNamingNSTemplate,
